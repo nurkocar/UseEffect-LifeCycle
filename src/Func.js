@@ -3,49 +3,39 @@ import {
   SafeAreaView,
   View,
   Text,
-  Button
+  Button,
+  Alert
 } from 'react-native';
 
 const App = (props) => {
 
-  // const [counter, setCounter] = useState(0);
-  // const [myNumber, setMyNumber] = useState(0);
-  // const [createDate, setCreateDate] = useState(new Date());
+  const [orderCount, setOrderCount] = useState(0);
 
+  useEffect(() => {
+    Alert.alert('CLARUSWAY','Hosgeldiniz!!')
+  }, [])
 
-  // useEffect(() => {
-  //   console.log('USE EFFECT[]')
-  // }, [])
+  useEffect(() => {
+    if (orderCount > 10) {
+      Alert.alert('CLARUSWAY', '10 dan fazla secim yaptiniz')
+    }
+  }, [orderCount])
 
-  // useEffect(() => {
-  //     <View>
-  //       <Text>Merhaba</Text>
-  //     </View>
-  // }, [counter])
+  // Alert.alert('HOSGELDINIZ')
 
-  // useEffect(() => {
-  //   console.log('use effect my number!!')
-  // }, [myNumber])
-
-  // console.log('RENDER')
   return (
     <SafeAreaView>
       <View>
-        <Text style={{ fontSize: 40 }}>Count: {counter}</Text>
+        <Text style={{ fontSize: 40 }}>Count {orderCount}</Text>
 
         <Button
-          title='Up'
-          onPress={() => setCounter(counter + 1)}
-
+          title='Select Order'
+          onPress={() => setOrderCount(orderCount + 1)}
         />
 
-        <Button
-          title='Change number'
-          onPress={() => setMyNumber(myNumber + 1)}
-
-        />
       </View>
     </SafeAreaView>
-  );
+  )
 };
+
 export default App;
