@@ -1,36 +1,68 @@
 import React, { useEffect, useState } from 'react';
 import {
+
   SafeAreaView,
   View,
   Text,
   Button,
-  Alert
+  Alert,
+  TextInput,
+  StyleSheet,
+  Dimensions
+
 } from 'react-native';
 
 const App = (props) => {
 
-  const [orderCount, setOrderCount] = useState(0);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  // const [input, cleanInput] = useState('');
 
-  useEffect(() => {
-    Alert.alert('CLARUSWAY','Hosgeldiniz!!')
-  }, [])
+  const login = () => {
+    Alert.alert('CLARUSWAY', `Email: ${email}, Pass: ${password}`);
+  };
 
-  useEffect(() => {
-    if (orderCount > 10) {
-      Alert.alert('CLARUSWAY', '10 dan fazla secim yaptiniz')
-    }
-  }, [orderCount])
+  // useEffect(() => {
 
-  // Alert.alert('HOSGELDINIZ')
+
+
+  // }, [email,password])
 
   return (
-    <SafeAreaView>
-      <View>
-        <Text style={{ fontSize: 40 }}>Count {orderCount}</Text>
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+
+        <Text style={{ margin: 20, fontSize: 150 }}>🌏</Text>
+
+        <View style={styles.input}>
+          <TextInput
+            // value={email}
+            placeholder='E posta adresinizi giriniz..'
+            onChangeText={(email) => setEmail(email)}
+
+          />
+        </View>
+
+        <View style={styles.input}>
+          <TextInput
+            // value = {password}
+            placeholder='Sifrenizi giriniz..'
+            onChangeText={(password) => setPassword(password)}
+            secureTextEntry={true}
+
+          />
+        </View>
 
         <Button
-          title='Select Order'
-          onPress={() => setOrderCount(orderCount + 1)}
+          title='Giris Yap'
+          onPress={() => {
+
+            setEmail('');
+            setPassword('');
+            // login;
+          }
+
+        }
         />
 
       </View>
@@ -39,3 +71,14 @@ const App = (props) => {
 };
 
 export default App;
+
+const styles = StyleSheet.create({
+  input: {
+    backgroundColor: '#e0e0e0',
+    padding: 10,
+    margin: 5,
+    borderRadius: 5,
+    width: Dimensions.get('window').width * 0.85
+
+  }
+})
