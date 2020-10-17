@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)https://www.twilio.com/blog/react-choose-functional-components -->
+<html lang="en" class="uk-notouch"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style id="stndz-style"></style>
+    
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width">
+    
+    <link rel="alternate" type="application/rss+xml" href="https://www.twilio.com/blog/feed">
+    
+    
+    <meta name="description" content="Understand the differences between functional and class components with sample code so that you can dive into the world of modern React!">
+    
+    
+    
+    
+    
+    
+    
+    <title>Understanding Functional Components vs. Class Components in React - Twilio</title>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" type="BlogPage" href="https://www.twilio.com/blog/react-choose-functional-components">
+  
+  <script type="text/javascript" async="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/munchkin.js.download"></script><script async="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/insight.beta.min.js.download"></script><script type="text/javascript" async="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/dM4.js.download"></script><script async="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/clearbit.min.js.download"></script><script type="text/javascript" async="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/bf-munchkin.min.js.download"></script><script src="./Understanding Functional Components vs. Class Components in React - Twilio_files/quant.js.download" async="" type="text/javascript"></script><script type="text/javascript" async="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/heap-1541905715.js.download"></script><script async="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/uwt.js.download"></script><script async="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/fbevents.js.download"></script><script type="text/javascript" async="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/hotjar-1359002.js.download"></script><script type="text/javascript" async="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/f.txt"></script><script type="text/javascript" async="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/insight.min.js.download"></script><script type="text/javascript" async="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/analytics.js.download"></script><script type="text/javascript" async="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/f.txt"></script><script src="./Understanding Functional Components vs. Class Components in React - Twilio_files/sdk.js.download" async="" crossorigin="anonymous"></script><script type="text/javascript" async="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/elqCfg.min.js.download"></script><script id="facebook-jssdk" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/sdk.js(1).download"></script><script type="text/javascript" async="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/mixpanel-2.2.min.js.download"></script><script async="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/gtm.js.download"></script><script type="application/ld+json">{"@context": "http://schema.org", "@type": "BlogPosting", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.twilio.com/blog/react-choose-functional-components"}, "headline": "Understanding Functional Components vs. Class Components in React", "datePublished": "2020-08-18T15:46:00+00:00", "publisher": {"@type": "Organization", "name": "Twilio", "url": "https://www.twilio.com", "logo": {"@type": "ImageObject", "url": "https://twilio-cms-prod.s3.amazonaws.com/original_images/twilio-logo-red-60px-tall.png", "width": 199, "height": 60}, "sameAs": ["https://twitter.com/twilio", "https://www.facebook.com/TeamTwilio", "https://plus.google.com/+twilio", "https://www.linkedin.com/company/twilio-inc-", "https://instagram.com/twilio/"]}, "description": "Understand the differences between functional and class components with sample code so that you can dive into the world of modern React!", "author": {"@type": "Person", "name": "Shiori Yamazaki"}, "dateModified": "2020-08-18T16:30:54.043610+00:00", "image": {"@type": "ImageObject", "url": "https://twilio-cms-prod.s3.amazonaws.com/original_images/gtv1GfMohKaSPR6B8M1nMKkLdLUQiMgqiMgr-kIXiZEE2v0OJzb1Jv6eS_wFrFFTvObOIZPAnGoie8", "height": 600, "width": 1200}}</script>
+  
+
+
+
+<meta property="og:title" content="Understanding Functional Components vs. Class Components in React">
+
+<meta property="og:url" content="https://www.twilio.com/blog/react-choose-functional-components">
+<meta property="og:site_name" content="Twilio Blog">
+<meta property="og:type" content="article">
+
+    <meta property="og:image" content="https://twilio-cms-prod.s3.amazonaws.com/original_images/gtv1GfMohKaSPR6B8M1nMKkLdLUQiMgqiMgr-kIXiZEE2v0OJzb1Jv6eS_wFrFFTvObOIZPAnGoie8">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="600">
+
+
+<meta property="og:description" content="Understand the differences between functional and class components with sample code so that you can dive into the world of modern React!">
+
+
+
+<meta name="twitter:site" content="@twilio">
+
+<meta name="twitter:title" content="Understanding Functional Components vs. Class Components in React">
+
+
+<meta name="twitter:description" content="Understand the differences between functional and class components with sample code so that you can dive into the world of modern React!">
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://twilio-cms-prod.s3.amazonaws.com/original_images/gtv1GfMohKaSPR6B8M1nMKkLdLUQiMgqiMgr-kIXiZEE2v0OJzb1Jv6eS_wFrFFTvObOIZPAnGoie8">
+
+
+
+
+<meta property="fb:app_id" content="414254592083321">
+
+
+
+
+
+  
+
+  
+  
+
+  <script>
+      dataLayer = [{
+          'author': 'Shiori Yamazaki',
+          'tags': 'JavaScript,React.js,React,js',
+          'categories': 'developers-drawing-the-owl',
+          'published_at': '2020-08-18',
+          'modified_at': '2020-08-18',
+      }]
+  </script>
+
+  
+  
+  <link rel="shortcut icon" href="https://www.twilio.com/docs/static/img/favicons/favicon.1096d1ada.ico">
+  <link rel="apple-touch-icon" href="https://www.twilio.com/docs/static/img/favicons/favicon_57.1096d1ada.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://www.twilio.com/docs/static/img/favicons/favicon_72.1096d1ada.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://www.twilio.com/docs/static/img/favicons/favicon_114.1096d1ada.png">
+  
+  
+  <link rel="stylesheet" href="./Understanding Functional Components vs. Class Components in React - Twilio_files/fonts.min.1096d1ada.css">
+  <link rel="stylesheet" href="./Understanding Functional Components vs. Class Components in React - Twilio_files/font-awesome.min.1096d1ada.css">
+  
+  
+  <link rel="stylesheet" href="./Understanding Functional Components vs. Class Components in React - Twilio_files/blog.min.1096d1ada.css">
+  
+  
+  
+  
+  
+  
+  <script>
+  var twilio = twilio || {};
+  twilio.environment = "prod";
+  twilio.baseUrl = "https://www.twilio.com";
+  twilio.SWIFTYPE_ENGINE_KEY = "T68bXEBf7NaKzyRpvbnG";
+  twilio.DOCSEARCH_API_KEY = "2dbc0c5e764a2669b21db8acc967fbd8";
+  twilio.FACEBOOK_APP_ID = "414254592083321";
+</script><style type="text/css"></style>
+
+
+<script>
+  twilio.account = twilio.account || {};
+  
+
+  twilio.user = twilio.user || {};
+  
+  
+    twilio.user.visitorSid = "VIe8862f2d0472332da9cf2cec182ea3aa";
+  
+  
+
+  
+  twilio.user.language = "php";
+  
+
+  
+
+</script>
+
+
+<style type="text/css">.txlive {display: none;}
+</style><script type="text/javascript" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/manifest.jsonp"></script><meta name="csrfToken" content="f9b45ac49df2f97bb33e8fa725a3bf29c73cd1daa25272537e26ab92a71c4711"><script type="text/javascript" async="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/munchkin.js(1).download"></script><script async="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/modules.418db05d8becb177a17c.js.download" charset="utf-8"></script><style type="text/css">iframe#_hjRemoteVarsFrame {display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;}</style><style type="text/css" id="qual_style-ym3"></style><style type="text/css" id="qual_style-ylr"></style><style type="text/css" data-fbcssmodules="css:fb.css.basecss:fb.css.dialog css:fb.css.iframewidget">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}</style><script async="true" type="text/javascript" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/roundtrip.js.download"></script></head>
+
+<body class="outer-container" cz-shortcut-listen="true">
+  
+
+	
+	<!-- Google Tag Manager -->
+	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MWRD6S"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window, document, 'script', 'dataLayer', 'GTM-MWRD6S');</script>
+	<!-- End Google Tag Manager -->
+	
+
+
+    
+      
+        <style>
+  .tq3-header-banner {
+    width: 100%;
+    background-image: url("/quest/next/img/backdrop.png");
+    background-color: #222;
+    color: #eee;
+    font-size: 18px;
+    text-align: center;
+    font-family: Lekton, Monaco, "Droid Mono", Consolas, monospace;
+    height: 50px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2em !important;
+  }
+
+  .tq3-header-banner img {
+    height: 40px;
+  }
+
+  .tq3-header-banner span.text {
+    display: inline-block;
+    margin: 0 10px;
+  }
+
+  .tq3-header-banner span.text b {
+    font-weight: normal;
+    color: #EFDC2E;
+  }
+
+  .tq3-header-banner a,
+  .tq3-header-banner a:visited {
+    display: inline-block;
+    color: #eee;
+    font-family: Lekton, Monaco, "Droid Mono", Consolas, monospace;
+    font-size: 18px;
+    padding: 5px;
+    background-color: #F22F46;
+    border: 1px solid #eee;
+    height: auto;
+    text-decoration: none;
+  }
+
+  .tq3-header-banner a:hover {
+    opacity: 0.7;
+  }
+
+  @media only screen and (max-width: 1120px) {
+    .tq3-header-banner a,
+    .tq3-header-banner span.text {
+      font-size: 14px;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .tq3-header-banner a,
+    .tq3-header-banner span.text {
+      font-size: 12px;
+      line-height: 1em;
+    }
+  }
+</style>
+<div class="tq3-header-banner">
+  <img src="./Understanding Functional Components vs. Class Components in React - Twilio_files/fog_owl.gif">
+  <span class="text">Level up your Twilio API skills in
+    <b>TwilioQuest</b>, an educational game for Mac, Windows, and Linux.</span>
+  <a href="https://www.twilio.com/quest/download?utm-source=tq3-blog-banner">Download Now</a>
+</div>
+      
+    
+
+    
+    
+      <div role="drawer" class="nav__drawer">
+  <div role="drawer__wrapper" class="nav__drawer-wrapper">
+    <div role="drawer__nav" class="nav__drawer-nav"><span class="nav__drawer-auth"><a href="https://www.twilio.com/login" class="nav__drawer-auth-link">Log In</a><a href="https://www.twilio.com/try-twilio" class="nav__drawer-auth-link">Sign Up</a></span><a href="https://www.twilio.com/blog/react-choose-functional-components#close" role="drawer__close" class="nav__drawer-close">Close</a></div>
+    <div class="nav__drawer-menu">
+      <div class="nav__drawer-container">
+        <div class="nav__drawer-grid">
+          <div class="nav__drawer-section">
+            <div role="drawer__header" class="nav__drawer-header">Products</div>
+            <div role="drawer__dropdown" class="nav__drawer-dropdown">
+              <div class="nav__drawer-column">
+                <ul>
+                  <li><a href="https://www.twilio.com/voice-video" class="nav__drawer-link nav__drawer-link--category">Voice &amp; Video</a></li>
+                  <li><a href="https://www.twilio.com/voice" class="nav__drawer-link">Programmable Voice</a></li>
+                  <li><a href="https://www.twilio.com/video" class="nav__drawer-link">Programmable Video</a></li>
+                  <li><a href="https://www.twilio.com/sip-trunking" class="nav__drawer-link">Elastic SIP Trunking</a></li>
+                  <li><a href="https://www.twilio.com/taskrouter" class="nav__drawer-link">TaskRouter</a></li>
+                  <li><a href="https://www.twilio.com/stun-turn" class="nav__drawer-link">Network Traversal</a></li>
+                </ul>
+                <ul>
+                  <li><a href="https://www.twilio.com/messaging" class="nav__drawer-link nav__drawer-link--category">Messaging</a></li>
+                  <li><a href="https://www.twilio.com/sms" class="nav__drawer-link">Programmable SMS</a></li>
+                  <li><a href="https://www.twilio.com/chat" class="nav__drawer-link">Programmable Chat</a></li>
+                  <li><a href="https://www.twilio.com/notify" class="nav__drawer-link">Notify</a></li>
+                </ul>
+              </div>
+              <div class="nav__drawer-column">
+                <ul>
+                  <li>
+                    <div class="nav__drawer-link nav__drawer-link--category">Authentication</div>
+                  </li>
+                  <li><a href="https://www.twilio.com/authy" class="nav__drawer-link">Authy</a></li>
+                </ul>
+                <ul>
+                  <li>
+                    <div class="nav__drawer-link nav__drawer-link--category">Connectivity</div>
+                  </li>
+                  <li><a href="https://www.twilio.com/lookup" class="nav__drawer-link">Lookup</a></li>
+                  <li><a href="https://www.twilio.com/phone-numbers" class="nav__drawer-link">Phone Numbers</a></li>
+                  <li><a href="https://www.twilio.com/wireless" class="nav__drawer-link">Programmable Wireless</a></li>
+                  <li><a href="https://www.twilio.com/sync" class="nav__drawer-link">Sync</a></li>
+                </ul>
+                <ul>
+                  <li>
+                    <div class="nav__drawer-link nav__drawer-link--category">Marketplace</div>
+                  </li>
+                  <li><a href="https://www.twilio.com/marketplace/add-ons" class="nav__drawer-link">Add-ons</a></li>
+                </ul>
+                <ul>
+                  <li>
+                    <div class="nav__drawer-link nav__drawer-link--category">Platform</div>
+                  </li>
+                  <li><a href="https://www.twilio.com/enterprise" class="nav__drawer-link">Enterprise Plan</a></li>
+                  <li><a href="https://www.twilio.com/interconnect" class="nav__drawer-link">Interconnect</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="nav__drawer-section">
+            <div role="drawer__header" class="nav__drawer-header">Use Cases</div>
+            <div role="drawer__dropdown" class="nav__drawer-dropdown">
+              <ul>
+                <li><a href="https://www.twilio.com/use-cases/access-security" class="nav__drawer-link nav__drawer-link--category">Access Security</a></li>
+                <li><a href="https://www.twilio.com/use-cases/call-and-text-marketing" class="nav__drawer-link nav__drawer-link--category">Call &amp; Text Marketing</a></li>
+                <li><a href="https://www.twilio.com/use-cases/collaboration" class="nav__drawer-link nav__drawer-link--category">Collaboration</a></li>
+                <li><a href="https://www.twilio.com/use-cases/commerce-communications" class="nav__drawer-link nav__drawer-link--category">Commerce Communications</a></li>
+                <li><a href="https://www.twilio.com/use-cases/contact-center" class="nav__drawer-link nav__drawer-link--category">Contact Center</a></li>
+              </ul>
+              <hr>
+            </div>
+            <div>
+              <div class="nav__drawer-column">
+                <ul>
+                  <li><a href="https://www.twilio.com/customers" class="nav__drawer-link nav__drawer-link--small">Customer Stories</a></li>
+                  <li><a href="https://www.twilio.com/showcase" class="nav__drawer-link nav__drawer-link--small">Partner Showcase</a></li>
+                  <li><a href="https://www.twilio.com/what-is-cloud-communications?" class="nav__drawer-link nav__drawer-link--small">Why Twilio?</a></li>
+                  <li><a href="https://www.twilio.com/support-plans" class="nav__drawer-link nav__drawer-link--small">Support Plans</a></li>
+                  <li><a href="http://status.twilio.com/" class="nav__drawer-link nav__drawer-link--small">Status</a></li>
+                </ul>
+              </div>
+              <div class="nav__drawer-column">
+                <ul>
+                  <li><a href="https://www.twilio.com/docs" class="nav__drawer-link nav__drawer-link--small">API &amp; Docs</a></li>
+                  <li><a href="https://www.twilio.com/blog" class="nav__drawer-link nav__drawer-link--small">Blog</a></li>
+                  <li><a href="https://www.twilio.com/help" class="nav__drawer-link nav__drawer-link--small">Help</a></li>
+                  <li><a href="https://www.twilio.com/company/jobs" class="nav__drawer-link nav__drawer-link--small">Jobs at Twilio</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="nav__sales"><a href="https://www.twilio.com/help/sales" class="nav__sales-button">Talk to Sales</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<nav class="nav js-nav" role="nav" style="background-color: white !important;">
+  <a href="https://www.twilio.com/blog" class="nav-title" data-glinktype="site navigation" data-glinklocation="blog" data-glinkname="logo">
+
+    <span class="nav-logo"></span>
+    <span class="nav-title-label">
+      
+        BLOG
+      
+    </span>
+  </a>
+  <ul class="nav-list">
+    
+    <li class="nav-list-item nav-docs">
+      <a href="https://www.twilio.com/docs/" class="nav-link" data-glinktype="site navigation" data-glinklocation="blog" data-glinkname="docs &amp; help">
+        <svg class="icon-docs" stroke-miterlimit="10" width="11.8" height="14" viewBox="0 0 11.8 14"><g fill="none" stroke="#F22F46"><path d="M11.3 13.5H.5V.5h5.4l5.4 5.4z"></path><path d="M11.3 5.9H5.9V.5"></path></g></svg>
+
+        <span class="nav-docs-label">Docs</span>
+      </a>
+    </li>
+    <li class="nav-list-item nav-login toggle-on-login">
+      <a href="https://www.twilio.com/login" class="nav-link" data-glinktype="site navigation" data-glinklocation="blog" data-glinkname="log in">
+        <svg class="icon-login" width="10.2" height="13.5" viewBox="0 0 10.2 13.5"><g fill="none" stroke="#F22F46" stroke-miterlimit="10"><circle cx="5.1" cy="3" r="2.5"></circle><path d="M.5 13.5c0-2.5 2.1-4.6 4.6-4.6s4.6 2.1 4.6 4.6"></path></g></svg>
+
+        <span class="nav-login-label">Log In</span>
+      </a>
+    </li>
+    <li class="nav-list-item nav-signup toggle-on-login">
+      <a href="https://www.twilio.com/try-twilio" class="nav-link" data-glinktype="site navigation" data-glinklocation="blog" data-glinkname="sign up">
+        <svg class="icon-signup" width="13" height="13" viewBox="0 0 13 13"><path fill="none" stroke="#F22F46" stroke-miterlimit="10" d="M0 6.5h13M6.5 0v13"></path></svg>
+
+        <span class="nav-signup-label">Sign Up</span>
+      </a>
+    </li>
+    <li class="nav-list-item nav-console toggle-on-login hidden">
+      <a href="https://www.twilio.com/console" class="nav-link" data-glinktype="site navigation" data-glinklocation="blog" data-glinkname="console">
+        <svg class="icon-login" width="10.2" height="13.5" viewBox="0 0 10.2 13.5"><g fill="none" stroke="#F22F46" stroke-miterlimit="10"><circle cx="5.1" cy="3" r="2.5"></circle><path d="M.5 13.5c0-2.5 2.1-4.6 4.6-4.6s4.6 2.1 4.6 4.6"></path></g></svg>
+
+        <span class="nav-login-label">Console</span>
+      </a>
+    </li>
+    <li class="nav-list-item nav-dotcom">
+      <a href="https://twilio.com/" class="nav-link" data-glinktype="site navigation" data-glinklocation="blog" data-glinkname="twilio.com">
+        <svg class="icon-outbound-link" width="13" height="13" viewBox="0 0 13 13"><path fill="none" stroke="#F22F46" stroke-miterlimit="10" d="M2 2.5h8.5V11M10 3l-8 8"></path></svg>
+
+        <span class="nav-dotcom-label">Twilio</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+    
+
+    
+      
+        <section class="cta js-cta">
+  <div class="cta-content inner-container">
+    <div class="cta-headline h3">
+      
+        Build the future of communications.
+      
+    </div>
+    <a class="cta-action btn btn--outline-red" href="https://twilio.com/try-twilio" data-glinktype="cta-link" data-glinklocation="blog-hero" data-glinkname="signup-start-building-for-free">Start building for free</a>
+  </div>
+</section>
+      
+    
+
+    
+
+    <main class="main inner-container">
+      <aside class="sidebar ">
+        
+          
+
+
+<div class="search">
+    <form action="https://www.twilio.com/blog/search" method="GET" data-gtm-vis-recent-on-screen-963897_437="7330" data-gtm-vis-first-on-screen-963897_437="7330" data-gtm-vis-total-visible-time-963897_437="100" data-gtm-vis-has-fired-963897_437="1">
+  <div class="search">
+    <input class="input input--search search-input" type="search" name="q" placeholder="Search">
+  </div>
+</form>
+
+</div>
+
+
+
+<div class="signup-to-build">
+  <p>Build the future of communications. Start today with Twilio's APIs and services.</p>
+  <a class="btn btn--primary" href="https://www.twilio.com/try-twilio" data-glinktype="cta-link" data-glinklocation="blog-sidebar" data-glinkname="signup-start-building-for-free-2">Start Building for Free</a>
+</div>
+
+
+
+<section class="tags">
+    <p class="tags-header">Posts by Stack</p>
+    <ul class="tags-list">
+      
+        <li class="tag"><a href="https://www.twilio.com/blog/tag/java">Java</a></li>
+      
+        <li class="tag"><a href="https://www.twilio.com/blog/tag/net">.NET</a></li>
+      
+        <li class="tag"><a href="https://www.twilio.com/blog/tag/ruby">Ruby</a></li>
+      
+        <li class="tag"><a href="https://www.twilio.com/blog/tag/php">PHP</a></li>
+      
+        <li class="tag"><a href="https://www.twilio.com/blog/tag/python">Python</a></li>
+      
+        <li class="tag"><a href="https://www.twilio.com/blog/tag/swift">Swift</a></li>
+      
+        <li class="tag"><a href="https://www.twilio.com/blog/tag/arduino">Arduino</a></li>
+      
+        <li class="tag"><a href="https://www.twilio.com/blog/tag/javascript">JavaScript</a></li>
+      
+    </ul>
+  </section>
+
+
+
+<section class="tags">
+  <p class="tags-header">Posts By Product</p>
+  <ul class="tags-list">
+    
+      <li class="tag"><a href="https://www.twilio.com/blog/tag/sms">SMS</a></li>
+    
+      <li class="tag"><a href="https://www.twilio.com/blog/tag/authy">Authy</a></li>
+    
+      <li class="tag"><a href="https://www.twilio.com/blog/tag/voice">Voice</a></li>
+    
+      <li class="tag"><a href="https://www.twilio.com/blog/tag/twilio-client">Twilio Client</a></li>
+    
+      <li class="tag"><a href="https://www.twilio.com/blog/tag/mms">MMS</a></li>
+    
+      <li class="tag"><a href="https://www.twilio.com/blog/tag/video">Video</a></li>
+    
+      <li class="tag"><a href="https://www.twilio.com/blog/tag/task-router">task router</a></li>
+    
+      <li class="tag"><a href="https://www.twilio.com/blog/tag/flex">Flex</a></li>
+    
+      <li class="tag"><a href="https://www.twilio.com/blog/tag/sip">SIP</a></li>
+    
+      <li class="tag"><a href="https://www.twilio.com/blog/tag/iot">IoT</a></li>
+    
+      <li class="tag"><a href="https://www.twilio.com/blog/tag/programmable-chat">Programmable Chat</a></li>
+    
+      <li class="tag"><a href="https://www.twilio.com/blog/tag/studio">Studio</a></li>
+    
+  </ul>
+</section>
+
+
+
+<section class="tags">
+  <p class="tags-header">Categories</p>
+  <ul class="tags-list">
+    
+      <li class="tag--category">
+        <a href="https://www.twilio.com/blog/category/code-tutorials-and-hacks/">Code, Tutorials and Hacks</a>
+      </li>
+    
+      <li class="tag--category">
+        <a href="https://www.twilio.com/blog/category/customer-highlights/">Customer Highlights</a>
+      </li>
+    
+      <li class="tag--category">
+        <a href="https://www.twilio.com/blog/category/developers-drawing-the-owl/">Developers Drawing The Owl</a>
+      </li>
+    
+      <li class="tag--category">
+        <a href="https://www.twilio.com/blog/category/news/">News</a>
+      </li>
+    
+      <li class="tag--category">
+        <a href="https://www.twilio.com/blog/category/stories-from-the-road/">Stories From The Road</a>
+      </li>
+    
+      <li class="tag--category">
+        <a href="https://www.twilio.com/blog/category/the-owls-nest-inside-twilio/">The Owl’s Nest: Inside Twilio</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+  <div class="social-buttons">
+    <a class="btn btn--icon-twitter" href="https://twitter.com/twilio" target="_blank" title="Follow on Twitter">
+      <svg class="icon-twitter" width="17" height="13.7" viewBox="0 0 17 13.7"><path d="M17 1.6c-.6.3-1.3.5-2 .5.7-.4 1.3-1.1 1.5-1.9-.7.4-1.4.7-2.2.8-.6-.6-1.5-1-2.5-1-2 0-3.5 1.5-3.5 3.5 0 .3 0 .5.1.8C5.5 4.1 2.9 2.7 1.2.6.9 1.1.7 1.7.7 2.4c0 1.2.6 2.3 1.6 2.9-.6 0-1.1-.2-1.6-.4C.7 6.6 1.9 8 3.5 8.3c-.3 0-.6.1-.9.1-.2 0-.4 0-.7-.1.4 1.4 1.7 2.4 3.3 2.4-1.2.9-2.7 1.5-4.3 1.5H.1c1.5 1 3.4 1.6 5.3 1.6 6.4 0 9.9-5.3 9.9-9.8v-.4c.6-.7 1.2-1.3 1.7-2"></path></svg>
+
+      Twitter
+    </a>
+    <a class="btn btn--icon-facebook" href="https://www.facebook.com/TeamTwilio" target="_blank" title="Follow on Facebook">
+      <svg class="icon-facebook" width="16" height="16" viewBox="0 0 16 16"><path d="M14.5 0h-13C.7 0 0 .7 0 1.5v13.1c0 .7.7 1.4 1.5 1.4H8V9.3H6v-2h2v-2c0-1.7.7-2.7 2.7-2.7h2v2h-.9c-.6 0-1.1.5-1.1 1.1v1.5h2.7l-.3 2h-2.3V16h3.9c.8 0 1.5-.7 1.5-1.5v-13C16 .7 15.3 0 14.5 0z"></path></svg>
+
+      Facebook
+    </a>
+  </div>
+
+
+
+<section class="subscribe">
+  <h3 class="subscribe-header">Developer stories<br>to your inbox.</h3>
+  <p>Subscribe to the Developer Digest, a monthly dose of all things code.</p>
+    <form id="1451" novalidate="" _lpchecked="1" class=" bf_form_init" bf_offer_id="432034314" data-gtm-vis-has-fired-963897_437="1">
+        <div class="input-wrapper">
+          <input class="input__honey field-size-top-large" id="field0" name="field_Email" type="email" placeholder="Enter your email…" required="required">
+          <input class="input__email field-size-top-large" id="email" name="email" type="email" placeholder="Enter your email…" autocomplete="nope" required="required">
+          <aside class="error_message small">Please enter a valid email address.</aside>
+        </div>
+        <input type="hidden" id="uTMContentInquiry" name="field_uTMContentInquiry" value="">
+        <input type="hidden" id="uTMCampaignInquiry" name="field_uTMCampaignInquiry" value="">
+        <input type="hidden" id="uTMMediumInquiry" name="field_uTMMediumInquiry" value="">
+        <input type="hidden" id="uTMSourceInquiry" name="field_uTMSourceInquiry" value="">
+        <input type="hidden" id="uTMTermInquiry" name="field_uTMTermInquiry" value="">
+        <input type="hidden" id="previousPage" name="field_previousPage" value="">
+        <input type="hidden" id="assetPage" name="field_assetPage" value="">
+        <input type="hidden" id="heapID" name="field_heapID" value="">
+        <input type="hidden" id="gCLIDURL" name="field_gCLIDURL" value="">
+        <input type="hidden" id="gCLID" name="field_gCLID" value="">
+        <input type="hidden" id="Lead_Source_Most_Recent_ELOQUA__c" name="field_Lead_Source_Most_Recent_ELOQUA__c" value="Full Service Request">
+        <input type="hidden" id="underTwilioPrivacyPolicy" name="field_underTwilioPrivacyPolicy" value="true">
+        <button id="submit" type="submit">
+          <span class="icon">
+            <svg width="20" height="20" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z" fill="#fff"></path></svg>
+          </span>
+          <span class="success">All set! Check your email.</span>
+        </button>
+    </form>
+  <p class="small">
+    You may unsubscribe at any time using the unsubscribe link in the digest email. See our <a href="https://www.twilio.com/legal/privacy">privacy policy</a> for more information.
+  </p>
+</section>
+
+
+
+<a class="promo" href="http://www.twilio.com/docs/tutorials">
+  <div class="promo-callout">New!</div>
+  <div class="promo-content">
+    <div class="promo-headline"> Tutorials</div>
+    <div class="promo-body">Sample  applications that cover common use cases in a variety of languages. Download, test drive, and tweak them yourself.</div>
+    <div class="promo-action link">Get started</div>
+  </div>
+</a>
+
+
+        
+        
+      </aside>
+
+      <section class="column">
+        
+          <ul class="article-list">
+        
+          
+          
+    
+      
+
+
+<article class="article not-loaded">
+  <header class="article-header">
+  <div class="article-meta">
+    <div class="article-authors">
+      <img src="./Understanding Functional Components vs. Class Components in React - Twilio_files/d41d8cd98f00b204e9800998ecf8427e.png">
+      By <a href="https://www.twilio.com/blog/author/syamazaki">Shiori Yamazaki</a>
+      <span class="article-published">2020-08-18</span>
+    </div>
+    <div class="social-buttons">
+      <a class="btn btn--icon-twitter" href="https://twitter.com/intent/tweet?url=https://www.twilio.com/blog/react-choose-functional-components&amp;text=Understanding%20Functional%20Components%20vs.%20Class%20Components%20in%20React&amp;via=twilio" target="_blank" title="Share on Twitter">
+        <svg class="icon-twitter" width="17" height="13.7" viewBox="0 0 17 13.7"><path d="M17 1.6c-.6.3-1.3.5-2 .5.7-.4 1.3-1.1 1.5-1.9-.7.4-1.4.7-2.2.8-.6-.6-1.5-1-2.5-1-2 0-3.5 1.5-3.5 3.5 0 .3 0 .5.1.8C5.5 4.1 2.9 2.7 1.2.6.9 1.1.7 1.7.7 2.4c0 1.2.6 2.3 1.6 2.9-.6 0-1.1-.2-1.6-.4C.7 6.6 1.9 8 3.5 8.3c-.3 0-.6.1-.9.1-.2 0-.4 0-.7-.1.4 1.4 1.7 2.4 3.3 2.4-1.2.9-2.7 1.5-4.3 1.5H.1c1.5 1 3.4 1.6 5.3 1.6 6.4 0 9.9-5.3 9.9-9.8v-.4c.6-.7 1.2-1.3 1.7-2"></path></svg>
+        Twitter
+      </a>
+      <a class="btn btn--icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://www.twilio.com/blog/react-choose-functional-components" target="_blank" title="Share on Facebook">
+        <svg class="icon-facebook" width="16" height="16" viewBox="0 0 16 16"><path d="M14.5 0h-13C.7 0 0 .7 0 1.5v13.1c0 .7.7 1.4 1.5 1.4H8V9.3H6v-2h2v-2c0-1.7.7-2.7 2.7-2.7h2v2h-.9c-.6 0-1.1.5-1.1 1.1v1.5h2.7l-.3 2h-2.3V16h3.9c.8 0 1.5-.7 1.5-1.5v-13C16 .7 15.3 0 14.5 0z"></path></svg>
+        Facebook
+      </a>
+      <a class="btn btn--icon-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;source=Twilio%20Blog&amp;title=Understanding%20Functional%20Components%20vs.%20Class%20Components%20in%20React&amp;url=https://www.twilio.com/blog/react-choose-functional-components" target="_blank" title="Share on LinkedIn">
+        <svg class="icon-linkedin" width="16" height="16" viewBox="0 0 12 12"><path d="M2.9,1.5C2.9,2.3,2.3,3,1.5,3C0.7,3,0,2.3,0,1.5C0,0.7,0.7,0,1.5,0C2.3,0,2.9,0.7,2.9,1.5z M2.7,4H0.2v8
+	h2.5V4z M6.7,4H4.3v8h2.4c0,0,0-3,0-4.2C6.7,6.7,7.2,6,8.2,6c0.9,0,1.3,0.6,1.3,1.8c0,1.2,0,4.2,0,4.2H12c0,0,0-2.9,0-5.1
+	c0-2.1-1.2-3.2-2.9-3.2c-1.7,0-2.4,1.3-2.4,1.3V4L6.7,4z"></path></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+  <h1 class="article-title">Understanding Functional Components vs. Class Components in React</h1>
+  </header>
+  <section class="article-content">
+    <p id="header_image"><img alt="header - Understanding Functional Components vs. Class Components in React" height="404" sizes="808px" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/gtv1GfMohKaSPR6B8M1nMKkLdLUQiMgqiMgr-kIXiZEE2v.width-808.png" srcset="https://twilio-cms-prod.s3.amazonaws.com/images/gtv1GfMohKaSPR6B8M1nMKkLdLUQiMgqiMgr-kIXiZEE2v.width-808.png 808w, https://twilio-cms-prod.s3.amazonaws.com/images/gtv1GfMohKaSPR6B8M1nMKkLdLUQiMgqiMgr-kIXiZEE2.width-1616.png 1200w" width="808"></p>
+    <div class="block-rich_text"><div class="rich-text"><p>In the world of React,&nbsp;there are two ways of writing a React component.&nbsp;One uses a function and the other uses a class. Recently functional components are becoming more and more popular, so why is that?</p>
+<p>This article will help you understand the differences between functional and class components by walking through each one with sample code so that you can dive into the world of modern React!</p>
+<h2>Rendering JSX</h2>
+<p>First of all, the clear difference is the syntax. Just like in their names, a functional component is just a plain JavaScript function that returns JSX.&nbsp;A class component is a JavaScript class that extends <code>React.Component</code> which has a render method. A bit confusing? Let’s take a look into a simple example.</p></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="codehilite"><pre class="twlo-code"><span class="code-line"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s2">"react"</span><span class="p">;</span>
+</span><span class="code-line"> 
+</span><span class="code-line"><span class="kr">const</span> <span class="nx">FunctionalComponent</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="code-line"> <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">world</span><span class="o">&lt;</span><span class="err">/h1&gt;;</span>
+</span><span class="code-line"><span class="p">};</span>
+</span></pre></div>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p>As you can see, a functional component is a function that returns JSX. If you are not familiar with arrow functions introduced in ES6, you can also check out the example below without.</p></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="codehilite"><pre class="twlo-code"><span class="code-line"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s2">"react"</span><span class="p">;</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="kd">function</span> <span class="nx">FunctionalComponent</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="code-line"> <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">world</span><span class="o">&lt;</span><span class="err">/h1&gt;;</span>
+</span><span class="code-line"><span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p><a href="https://codepen.io/syamazaki/pen/zYqvMzp">See render with functional component in CodePen</a></p>
+<p>On the other hand, when defining a class component, you have to make a class that extends <code>React.Component</code>. The JSX to render will be returned inside the render method.</p></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="codehilite"><pre class="twlo-code"><span class="code-line"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s2">"react"</span><span class="p">;</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="kr">class</span> <span class="nx">ClassComponent</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+</span><span class="code-line"> <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="code-line">   <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">world</span><span class="o">&lt;</span><span class="err">/h1&gt;;</span>
+</span><span class="code-line"> <span class="p">}</span>
+</span><span class="code-line"><span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p>Below is the same example but without using destructuring. If you are not familiar with destructuring, you can learn more about <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">destructuring</a>&nbsp;and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">arrow functions</a>&nbsp;introduced in ES6!</p></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="codehilite"><pre class="twlo-code"><span class="code-line"><span class="kr">import</span> <span class="nx">React</span> <span class="nx">from</span> <span class="s2">"react"</span><span class="p">;</span>
+</span><span class="code-line">
+</span><span class="code-line"><span class="kr">class</span> <span class="nx">ClassComponent</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+</span><span class="code-line"> <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="code-line">   <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">world</span><span class="o">&lt;</span><span class="err">/h1&gt;;</span>
+</span><span class="code-line"> <span class="p">}</span>
+</span><span class="code-line"><span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p><a href="https://codepen.io/syamazaki/pen/qBZOQxJ">See render with class component in CodePen</a></p>
+<h2>Passing props</h2>
+<p>Passing props can be confusing, but let’s see how they are written in both class and functional components. Let’s say we are passing props of the name&nbsp;“Shiori” like below.</p></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="codehilite"><pre class="twlo-code"><span class="code-line"><span class="o">&lt;</span><span class="nx">Component</span> <span class="nx">name</span><span class="o">=</span><span class="s2">"Shiori"</span> <span class="o">/&gt;</span>
+</span></pre></div>
+</div>
+</div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="codehilite"><pre class="twlo-code"><span class="code-line"><span class="kr">const</span> <span class="nx">FunctionalComponent</span> <span class="o">=</span> <span class="p">({</span> <span class="nx">name</span> <span class="p">})</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="code-line"> <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="p">{</span><span class="nx">name</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/h1&gt;;</span>
+</span><span class="code-line"><span class="p">};</span>
+</span></pre></div>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p>Inside a functional component, we are passing props as an argument of the function. Note that we are using destructuring here. Alternatively, we can write it without as well.</p></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="codehilite"><pre class="twlo-code"><span class="code-line"><span class="kr">const</span> <span class="nx">FunctionalComponent</span> <span class="o">=</span> <span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="code-line"> <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="p">{</span><span class="nx">props</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/h1&gt;;</span>
+</span><span class="code-line"><span class="p">};</span>
+</span></pre></div>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p>In this case, you have to use <code>props.name</code> instead of name.</p>
+<p><a href="https://codepen.io/syamazaki/pen/gOraQBb">See props with functional component in CodePen</a></p></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="codehilite"><pre class="twlo-code"><span class="code-line"><span class="kr">class</span> <span class="nx">ClassComponent</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+</span><span class="code-line">  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="code-line">    <span class="kr">const</span> <span class="p">{</span> <span class="nx">name</span> <span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">;</span>
+</span><span class="code-line">    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="p">{</span> <span class="nx">name</span> <span class="p">}</span><span class="o">&lt;</span><span class="err">/h1&gt;;</span>
+</span><span class="code-line"> <span class="p">}</span>
+</span><span class="code-line"><span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p>Since it is a class, you need to use <code>this</code> to refer to props. And of course, we can use destructuring to get <code>name</code> inside props while utilizing class-based components.</p>
+<p><a href="https://codepen.io/syamazaki/pen/RwaWqdw">See props with class component in CodePen</a></p>
+<h2>Handling state</h2>
+<p>Now we all know that we cannot avoid dealing with state variables in a React project. Handling state was only doable in a class component until recently, but from React 16.8, React Hook&nbsp;<a href="https://reactjs.org/docs/hooks-state.html">useState</a>&nbsp;was introduced to allow developers to write stateful functional components. You can learn more about Hooks from <a href="https://reactjs.org/docs/hooks-overview.html">the official documentation</a>. Here we are going to make a simple counter that starts from 0, and one click on button will increment the count by 1.</p>
+<h3>Handling state in functional components</h3></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="codehilite"><pre class="twlo-code"><span class="code-line"><span class="kr">const</span> <span class="nx">FunctionalComponent</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="code-line"> <span class="kr">const</span> <span class="p">[</span><span class="nx">count</span><span class="p">,</span> <span class="nx">setCount</span><span class="p">]</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">useState</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span class="code-line">
+</span><span class="code-line"> <span class="k">return</span> <span class="p">(</span>
+</span><span class="code-line">   <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+</span><span class="code-line">     <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">count</span><span class="o">:</span> <span class="p">{</span><span class="nx">count</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class="code-line">     <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="nx">setCount</span><span class="p">(</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)}</span><span class="o">&gt;</span><span class="nx">Click</span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+</span><span class="code-line">   <span class="o">&lt;</span><span class="err">/div&gt;</span>
+</span><span class="code-line"> <span class="p">);</span>
+</span><span class="code-line"><span class="p">};</span>
+</span></pre></div>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p>To use state variables in a functional component, we need to use <code>useState</code> Hook, which takes an argument of initial state. In this case we start with 0 clicks so the initial state of count will be 0.</p>
+<p>Of course you can have more variety of initial state including <code>null</code>, <code>string</code>, or even <code>object</code> - any type that&nbsp;JavaScript allows! And on the left side, as <code>useState</code> returns the current state and a function that updates it, we are destructuring the array like this. If you are a bit confused about the two elements of the array, you can consider them as a state and its setter. In this example we named them <code>count</code> and <code>setCount</code> to make it easy to understand the connection between the two.</p>
+<p><a href="https://codepen.io/syamazaki/pen/wvGKRBg?editors=1010">See state with functional component in CodePen</a></p>
+<h3>Handling state in class components</h3></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="codehilite"><pre class="twlo-code"><span class="code-line"><span class="kr">class</span> <span class="nx">ClassComponent</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+</span><span class="code-line"> <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="code-line">   <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+</span><span class="code-line">   <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class="code-line">     <span class="nx">count</span><span class="o">:</span> <span class="mi">0</span>
+</span><span class="code-line">   <span class="p">};</span>
+</span><span class="code-line"> <span class="p">}</span>
+</span><span class="code-line">
+</span><span class="code-line"> <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="code-line">   <span class="k">return</span> <span class="p">(</span>
+</span><span class="code-line">     <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+</span><span class="code-line">       <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">count</span><span class="o">:</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span><span class="p">}</span> <span class="nx">times</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class="code-line">       <span class="o">&lt;</span><span class="nx">button</span> <span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span> <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">count</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">})}</span><span class="o">&gt;</span>
+</span><span class="code-line">         <span class="nx">Click</span>
+</span><span class="code-line">       <span class="o">&lt;</span><span class="err">/button&gt;</span>
+</span><span class="code-line">     <span class="o">&lt;</span><span class="err">/div&gt;</span>
+</span><span class="code-line">   <span class="p">);</span>
+</span><span class="code-line"> <span class="p">}</span>
+</span><span class="code-line"><span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p>The idea is still the same but a class component handles state a bit differently. Firstly, we need to understand the importance of the <code>React.Component</code> constructor. Here is the definition from the <a href="https://reactjs.org/docs/react-component.html#constructor">official documentation</a>:</p>
+<p>“<em>The constructor for a React component is called before it is mounted. When implementing the constructor for a React.Component subclass, you should call super(props) before any other statement. Otherwise, this.props will be undefined in the constructor, which can lead to bugs.</em>”</p>
+<p>Basically, without implementing the constructor and calling super(props), all the state variables that you are trying to use will be undefined. So let’s define the constructor first. Inside the constructor, you will make a state object with a state key and initial value. And inside JSX, we use <code>this.state.count</code> to access the value of the state key we defined in the &nbsp;constructor to display the count. Setter is pretty much the same, just different syntax.</p>
+<p>Alternatively, you can write an <code>onClick</code> function. Remember, the <code>setState</code> function takes argument(s) of state, props(optional) if needed.</p></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="codehilite"><pre class="twlo-code"><span class="code-line"><span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span> <span class="p">=&gt;</span>
+</span><span class="code-line">  <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="code-line">    <span class="k">return</span> <span class="p">{</span> <span class="nx">count</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">count</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">};</span>
+</span><span class="code-line">  <span class="p">})</span>
+</span><span class="code-line"><span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p><a href="https://codepen.io/syamazaki/pen/QWNyRxY?editors=1010">See state with class component in Codepen</a></p>
+<h2>Lifecycle Methods</h2>
+<p>Finally, let’s talk about lifecycles. Hang on, we are almost there! As you already know, lifecycles play an important role in the timing of rendering. For those of you who are migrating from class components to functional components, you must be wondering what could replace lifecycle methods such as <code>componentDidMount()</code> in a class component. And yes, there is a hook that works perfectly for the purpose, let’s check it out!</p>
+<h3>On Mounting (componentDidMount)</h3>
+<p>The lifecycle method <code>componentDidMount</code> is called right after the first render completes. There used to be a <code>componentWillMount</code> that happens before the first render, but it is considered legacy and not recommended to use in newer versions of React.</p></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="codehilite"><pre class="twlo-code"><span class="code-line"><span class="kr">const</span> <span class="nx">FunctionalComponent</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="code-line"> <span class="nx">React</span><span class="p">.</span><span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="code-line">   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Hello"</span><span class="p">);</span>
+</span><span class="code-line"> <span class="p">},</span> <span class="p">[]);</span>
+</span><span class="code-line"> <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">World</span><span class="o">&lt;</span><span class="err">/h1&gt;;</span>
+</span><span class="code-line"><span class="p">};</span>
+</span></pre></div>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p>Replacing <code>componentDidMount</code>, We use the <code>useEffect</code> hook with the second argument of <code>[]</code>. The second argument of the <code>useState</code> hook is normally an array of a state(s) that changes, and <code>useEffect</code> will be only called on these selected changes. But when it’s an empty array like this example, it will be called once on mounting. This is a perfect replacement for a <code>componentDidMount</code>.</p></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="codehilite"><pre class="twlo-code"><span class="code-line"><span class="kr">class</span> <span class="nx">ClassComponent</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+</span><span class="code-line"> <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="code-line">   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Hello"</span><span class="p">);</span>
+</span><span class="code-line"> <span class="p">}</span>
+</span><span class="code-line">
+</span><span class="code-line"> <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="code-line">   <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Hello</span><span class="p">,</span> <span class="nx">World</span><span class="o">&lt;</span><span class="err">/h1&gt;;</span>
+</span><span class="code-line"> <span class="p">}</span>
+</span><span class="code-line"><span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p>Basically the same thing happens here: <code>componentDidMount</code> is a lifecycle method that is called once after the first render.</p>
+<h3>On Unmounting (componentWillUnmount)</h3></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="codehilite"><pre class="twlo-code"><span class="code-line"><span class="kr">const</span> <span class="nx">FunctionalComponent</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="code-line"> <span class="nx">React</span><span class="p">.</span><span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="code-line">   <span class="k">return</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span><span class="code-line">     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Bye"</span><span class="p">);</span>
+</span><span class="code-line">   <span class="p">};</span>
+</span><span class="code-line"> <span class="p">},</span> <span class="p">[]);</span>
+</span><span class="code-line"> <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Bye</span><span class="p">,</span> <span class="nx">World</span><span class="o">&lt;</span><span class="err">/h1&gt;;</span>
+</span><span class="code-line"><span class="p">};</span>
+</span></pre></div>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p>I am happy to tell you that we can also use&nbsp;a&nbsp;<code>useState</code> hook for unmounting as well. But be careful, the syntax is a bit different. What you need to do is return a function that runs on unmounting inside the <code>useEffect</code> function. This is especially useful when you have to clean up the subscriptions such as a <code>clearInterval</code> function, otherwise it can cause a severe memory leak on a bigger project. One advantage of using <code>useEffect</code> is that we can write functions for both mounting and unmounting in the same place.</p></div></div>
+<div class="block-markdown">
+
+<div class="markdown">
+    <div class="codehilite"><pre class="twlo-code"><span class="code-line"><span class="kr">class</span> <span class="nx">ClassComponent</span> <span class="kr">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+</span><span class="code-line"> <span class="nx">componentWillUnmount</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="code-line">   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Bye"</span><span class="p">);</span>
+</span><span class="code-line"> <span class="p">}</span>
+</span><span class="code-line">
+</span><span class="code-line"> <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+</span><span class="code-line">   <span class="k">return</span> <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;</span><span class="nx">Bye</span><span class="p">,</span> <span class="nx">World</span><span class="o">&lt;</span><span class="err">/h1&gt;;</span>
+</span><span class="code-line"> <span class="p">}</span>
+</span><span class="code-line"><span class="p">}</span>
+</span></pre></div>
+</div>
+</div>
+<div class="block-rich_text"><div class="rich-text"><p><a href="https://codepen.io/syamazaki/pen/OJNMejY?editors=1010">See lifecycle with functional component in Codepen</a></p>
+<p><a href="https://codepen.io/syamazaki/pen/MWyKMoe?editors=1010">See life cycle with class component in Codepen</a></p>
+<h2>Conclusion</h2>
+<p>There are pros and cons in both styles but I&nbsp;would like to conclude that functional components are taking over modern React&nbsp;in the foreseeable future.</p>
+<p>As we noticed in the examples, a functional component is written shorter and simpler, which makes it easier to develop, understand, and test. Class components can also be confusing with so many uses of <code>this</code>. Using functional components can easily avoid this kind of mess and keep everything clean.</p>
+<p>It should also be noted that&nbsp;the React team is supporting more React hooks for functional components that replace or even improve upon class components. To follow up, the React team mentioned in earlier days that <a href="https://reactjs.org/blog/2015/10/07/react-v0.14.html#stateless-functional-components">they will make performance optimizations in functional components</a>&nbsp;by avoiding unnecessary checks and memory allocations. And as promising as it sounds, new hooks are recently introduced for functional components such as <code>useState</code> or <code>useEffect</code> while also promising<a href="https://reactjs.org/docs/hooks-intro.html#gradual-adoption-strategy">&nbsp;that they are not going to obsolete class components</a>. The team is seeking to <a href="https://reactjs.org/docs/hooks-intro.html#motivation">gradually adopt functional components with hooks</a>&nbsp;in newer cases, which means that there is no need to switch over the existing projects that utilize class components to the entire rewrite with functional components so that they can remain consistent.</p>
+<p>Again, there are a lot of valid coding styles in React. Yet I prefer using functional components over class components for those reasons listed above. I hope this article helped you get more familiar with modern React. To learn more, check out <a href="https://reactjs.org/">the official documentation!</a>&nbsp;You can also check out our <a href="https://www.twilio.com/blog/video-chat-react-hooks">post on building a Twilio Video app</a>&nbsp;see a practical use of functional components with hooks.</p>
+<p><em>Shiori Yamazaki is a Software Engineering Intern on the Platform Experience team. She loves to develop modern web applications. She can be reached at syamazaki [at] twilio.com or </em><em><a href="https://ee.linkedin.com/in/shioriyamazaki">LinkedIn</a></em><em>.</em></p></div></div>
+    <div class="article-coauthors">
+      <div class="article-coauthors-label">Authors</div>
+      <ul class="article-coauthors-list">
+        <li>
+          <img src="./Understanding Functional Components vs. Class Components in React - Twilio_files/d41d8cd98f00b204e9800998ecf8427e.png">
+          <a href="https://www.twilio.com/blog/author/syamazaki">Shiori Yamazaki</a>
+        </li>
+        
+        
+        
+      </ul>
+    </div>
+    
+    <div class="article-coauthors">
+      <div class="article-coauthors-label">Reviewers</div>
+      <ul class="article-coauthors-list">
+        
+        <li>
+          <img src="./Understanding Functional Components vs. Class Components in React - Twilio_files/62d016e910f76d04c86c883130236723">
+          <a href="https://www.twilio.com/blog/author/tthurium">Tilde Thurium</a>
+        </li>
+        
+        <li>
+          <img src="./Understanding Functional Components vs. Class Components in React - Twilio_files/134439cd075bedf77544305ea8f74f7e">
+          <a href="https://www.twilio.com/blog/author/dphan">Diane Phan</a>
+        </li>
+        
+      </ul>
+    </div>
+    
+
+    
+
+    
+
+    
+  </section>
+</article>
+
+
+    
+    
+
+        
+          </ul>
+        
+      </section>
+    </main>
+
+    
+    <div class="prefooter">
+      
+        <a class="btn btn-large" href="https://www.twilio.com/try-twilio" data-glinktype="cta-link" data-glinklocation="blog-footer" data-glinkname="signup-sign-up-start-building">Sign up and start building</a>
+        <div class="secondary-action">
+          Not ready yet? <a href="https://www.twilio.com/help/sales" class="underline" data-glinktype="cta-link" data-glinklocation="blog-footer" data-glinkname="sales-talk-to-an-expert">Talk to an expert.</a>
+        </div>
+      
+    </div>
+    
+
+
+<footer class="twlo-footer">
+  <div class="twlo-footer__logo" title="Twilio">
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+      <path fill="currentColor" d="M15 0C6.7 0 0 6.7 0 15s6.7 15 15 15 15-6.7 15-15S23.3 0 15 0zm0 26C8.9 26 4 21.1 4 15S8.9 4 15 4s11 4.9 11 11-4.9 11-11 11z"></path>
+      <circle fill="currentColor" cx="18.7" cy="11.3" r="3.1"></circle>
+      <circle fill="currentColor" cx="18.7" cy="18.7" r="3.1"></circle>
+      <circle fill="currentColor" cx="11.3" cy="18.7" r="3.1"></circle>
+      <circle fill="currentColor" cx="11.3" cy="11.3" r="3.1"></circle>
+    </svg>
+  </div>
+  <ul class="twlo-footer__list">
+    <li class="twlo-footer__list-item">
+      <a href="https://www.twilio.com/company" class="twlo-footer__link">About</a>
+    </li>
+    <li class="twlo-footer__list-item">
+      <a href="https://www.twilio.com/legal" class="twlo-footer__link">Legal</a>
+    </li>
+    <li class="twlo-footer__list-item">
+      Copyright © 2020 Twilio Inc.
+    </li>
+    <li class="twlo-footer__list-item">
+      All Rights Reserved.
+    </li>
+    <li class="twlo-footer__list-item">
+      Protected by reCAPTCHA – <a href="https://policies.google.com/privacy" target="_blank" class="legal__link">Privacy</a> –&nbsp;<a href="https://policies.google.com/terms" target="_blank" class="legal__link">Terms</a>
+    </li>
+  </ul>
+</footer>
+
+
+
+    
+    <script src="./Understanding Functional Components vs. Class Components in React - Twilio_files/vendor.min.1096d1ada.js.download"></script>
+    
+
+  
+
+  <!-- Mixpanel -->
+  <script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+  typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,
+    e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+    mixpanel.init("f71c19735fa6ecc5225ff563285e1794");
+    </script>
+  
+
+  
+    <!-- Eloqua -->
+    <script type="text/javascript">
+    var _elqQ = _elqQ || [];
+    _elqQ.push(['elqSetSiteId', '815114181']);
+    _elqQ.push(['elqTrackPageView']);
+    _elqQ.push(['elqUseFirstPartyCookie', 'www.twilio.com']);
+
+    (function () {
+      function async_load() {
+        var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+        s.src = '//img03.en25.com/i/elqCfg.min.js';
+        var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+      }
+      if (window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
+      else if (window.attachEvent) window.attachEvent('onload', async_load);
+    })();
+    </script>
+  
+
+  
+    <!-- Transifex -->
+    <script type="text/javascript">
+    window.liveSettings = {
+      api_key: '4c06c1c5a6b341e591d969476fe2675f'
+    };
+    </script>
+    <script type="text/javascript" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/live.js.download"></script>
+    <style>
+    .txlive-langselector { display: none; }
+    </style>
+  
+
+  
+
+
+
+
+    
+      <script src="./Understanding Functional Components vs. Class Components in React - Twilio_files/blog.min.1096d1ada.js.download"></script>
+    
+
+    
+    
+
+    
+
+
+    
+
+
+    <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <script type="text/javascript" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/widgets.js.download"></script>
+    <script type="text/javascript">
+    window.twilio.SIGNUP_LINK_PATTERNS = [ new RegExp('^https?:\/\/(www.)?twilio.com\/try-twilio'), ]
+</script>
+  
+
+
+<iframe scrolling="no" frameborder="0" allowtransparency="true" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/widget_iframe.96fd96193cc66c3e11d4c5e4c7c7ec97.html" title="Twitter settings iframe" style="display: none;" class=" bf_frame_init"></iframe><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" title="Twitter analytics iframe" name="bf_frame0" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/saved_resource.html"></iframe><script type="text/javascript" id="">var _C={REDACTION_COPY:{EMAIL:"EMAIL_REDACTED"}};function extractParams(){for(var b=[],a,c=/([^&=]+)=?([^&]*)/g,d=window.location.search.substring(1);a=c.exec(d);)b.push([a[1],a[2]]);return b}var urlParams=extractParams(),emailRegex=/(([^<>()\[\]\\.,;:\s@"%]+(\.[^<>()\[\]\\.,;:\s@"%]+)*)|(".+"))(@|%40)((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/g;
+urlParams=urlParams.map(function(b){return b.map(function(a){_redactedValue=decodeURIComponent(a).replace(emailRegex,_C.REDACTION_COPY.EMAIL);return _redactedValue===_C.REDACTION_COPY.EMAIL?_redactedValue:a})});
+function rewriteURL(b){if(0===b.length)return window.location.protocol+"//"+window.location.host+window.location.pathname+window.location.hash;for(var a="?",c=0;c<b.length;c++)0<c&&(a=a.concat("\x26")),a=a.concat(b[c][0]+"\x3d"+b[c][1]);return window.location.protocol+"//"+window.location.host+window.location.pathname+a+window.location.hash}var newURL=rewriteURL(urlParams);newURL!==window.location.href&&window.history.replaceState({},document.title,newURL);
+var newTitle=document.title.replace(emailRegex,_C.REDACTION_COPY.EMAIL);newTitle!==document.title&&(document.title=newTitle);dataLayer.push({event:"piiRedacted"});</script><script type="text/javascript" id="truste_0.14304825770420693" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/notice"></script><script src="./Understanding Functional Components vs. Class Components in React - Twilio_files/v1.7-218" async="async" crossorigin=""></script>
+
+<script type="text/javascript" id="">self._truste_eumap&&dataLayer.push({cm_ctx:"eu",event:"consentManagerLoaded"});dataLayer.push({event:"trustarcLoaded"});var __dispatched__={},__i__=self.postMessage&&setInterval(function(){if(self.PrivacyManagerAPI&&__i__){var b={PrivacyManagerAPI:{action:"getConsentDecision",timestamp:(new Date).getTime(),self:self.location.host}};self.top.postMessage(JSON.stringify(b),"*");__i__=clearInterval(__i__)}},50);
+self.addEventListener("message",function(b,a){try{if(b.data&&(a=JSON.parse(b.data))&&(a=a.PrivacyManagerAPI)&&a.capabilities&&"getConsentDecision"==a.action){var d=self.PrivacyManagerAPI.callApi("getGDPRConsentDecision",self.location.host).consentDecision;d&&d.forEach(function(c){__dispatched__[c]||(self.dataLayer&&self.dataLayer.push({event:"GDPR Pref Allows "+c}),__dispatched__[c]=1)})}}catch(c){}});</script><script type="text/javascript" id="">var _kiq=_kiq||[];(function(){setTimeout(function(){var a=document,b=a.getElementsByTagName("script")[0];a=a.createElement("script");a.type="text/javascript";a.async=!0;a.src="//s3.amazonaws.com/ki.js/60855/dM4.js";b.parentNode.insertBefore(a,b)},1)})();"twilio"in window&&twilio.account&&twilio.account.sid&&_kiq.push(["identify",twilio.account.sid]);</script>
+<script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("dataProcessingOptions",[]);fbq("init","1040773425961662");fbq("track","PageView");</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1040773425961662&amp;ev=PageView&amp;noscript=1"></noscript>
+
+
+<script type="text/javascript" id="">!function(b,c,d,a){b.twq||(a=b.twq=function(){a.exe?a.exe.apply(a,arguments):a.queue.push(arguments)},a.version="1",a.queue=[],t=c.createElement(d),t.async=!0,t.src="//static.ads-twitter.com/uwt.js",s=c.getElementsByTagName(d)[0],s.parentNode.insertBefore(t,s))}(window,document,"script");twq("init","nv97q");twq("track","PageView");</script>
+<script type="text/javascript" id="">var getCookie;
+if("twilio"in window&&(!twilio.user||"full"===twilio.user.access)){getCookie=function(a){var b="; "+document.cookie;a=b.split("; "+a+"\x3d");if(2==a.length)return a.pop().split(";").shift()};var _session_id=getCookie("tw-session-id");_session_id||(document.cookie="tw-session-id\x3d"+Date.now()+Math.random()+";path\x3d/;domain\x3d.twilio.com",_session_id=getCookie("tw-session-id"));var sid="undefined",_sift=window._sift=window._sift||[];_sift.push(["_setAccount","316b238f93"]);_sift.push(["_setUserId",
+sid]);_sift.push(["_setSessionId",_session_id]);_sift.push(["_trackPageview"]);(function(){function a(){var b=document.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.siftscience.com/s.js";var c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c)}window.attachEvent?window.attachEvent("onload",a):window.addEventListener("load",a,!1)})()};</script><script type="text/javascript" id="">window.heap=window.heap||[];
+heap.load=function(b,a){window.heap.appid=b;window.heap.config=a=a||{};var c=a.forceSSL||"https:"===document.location.protocol;a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=(c?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+b+".js";b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b);b=function(d){return function(){heap.push([d].concat(Array.prototype.slice.call(arguments,0)))}};a="addEventProperties addUserProperties clearEventProperties identify removeEventProperty setEventProperties track unsetEventProperty resetIdentity".split(" ");for(c=
+0;c<a.length;c++)heap[a[c]]=b(a[c])};heap.load(google_tag_manager["GTM-MWRD6S"].macro(5),{disableTextCapture:!0});google_tag_manager["GTM-MWRD6S"].macro(6)?heap.identify(google_tag_manager["GTM-MWRD6S"].macro(7),"User ID"):heap.identify(google_tag_manager["GTM-MWRD6S"].macro(8),"Visitor Id");</script>
+<script type="text/javascript" id="">var _qevents=_qevents||[];(function(){var a=document.createElement("script");a.src=("https:"==document.location.protocol?"https://secure":"http://edge")+".quantserve.com/quant.js";a.async=!0;a.type="text/javascript";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();_qevents.push({qacct:"p-efmoRQHrDUXig"});</script>
+<noscript>
+ <img src="//pixel.quantserve.com/pixel/p-efmoRQHrDUXig.gif?labels=_fp.event.Default" style="display: none;" border="0" height="1" width="1" alt="Quantcast">
+</noscript>
+
+
+<script type="text/javascript" id="">var bfId="bxIiMMuhVmgMMH42",bfSession=.041666666666666664;(function(){var a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===document.location.protocol?"https://":"http://")+"munchkin.brightfunnel.com/js/build/bf-munchkin.min.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})();</script>
+<script type="text/javascript" id="">adroll_adv_id="5IACO76IQ5HCJNO2M2OF6M";adroll_pix_id="LVLQJOTNERDJZLBZYUYQ6X";
+(function(){var a=function(){if(document.readyState&&!/loaded|complete/.test(document.readyState))setTimeout(a,10);else if(window.__adroll_loaded){var b=document.createElement("script"),c="https://s.adroll.com";b.setAttribute("async","true");b.type="text/javascript";b.src=c+"/j/roundtrip.js";((document.getElementsByTagName("head")||[null])[0]||document.getElementsByTagName("script")[0].parentNode).appendChild(b)}else __adroll_loaded=!0,setTimeout(a,50)};window.addEventListener?window.addEventListener("load",
+a,!1):window.attachEvent("onload",a)})();</script>
+<script type="text/javascript" id="">var playerLinks=document.querySelectorAll(".watch-video");if(0<playerLinks.length){var tag=document.createElement("script");tag.src="https://www.youtube.com/iframe_api";var firstScriptTag=document.getElementsByTagName("script")[0];firstScriptTag.parentNode.insertBefore(tag,firstScriptTag)}
+for(var players=document.querySelectorAll(".video__canvas"),i=0;i<players.length;i++){var playerEl=players[i].getElementsByTagName("video"),playerObj;playerEl&&(player=videojs(playerEl[0].getAttribute("id")))&&(player.on("play",function(){0==Math.floor(player.currentTime())&&dataLayer.push({event:"gtmEvent",eventCategory:"video",eventAction:"video start",eventLabel:player.mediainfo.name})}),player.on("pause",function(){Math.floor(player.currentTime())==Math.floor(player.duration())&&dataLayer.push({event:"gtmEvent",
+eventCategory:"video",eventAction:"video complete",eventLabel:player.mediainfo.name})}))}playerLinks=document.querySelectorAll(".video-content__play-link");
+if(0<playerLinks.length)for(tag=document.createElement("script"),tag.src="https://player.vimeo.com/api/player.js",firstScriptTag=document.getElementsByTagName("script")[0],firstScriptTag.parentNode.insertBefore(tag,firstScriptTag),i=0;i<playerLinks.length;i++){var el=playerLinks[i];el.addEventListener("click",function(b){setTimeout(function(){var d=document.querySelectorAll(".mfp-iframe");d[0].setAttribute("id","vimeoPlayer");var a=new Vimeo.Player("vimeoPlayer");a.on("play",function(){a.started||
+(a.started=!0,a.getVideoTitle().then(function(c){dataLayer.push({event:"gtmEvent",eventCategory:"video",eventAction:"video start",eventLabel:c})})["catch"](function(c){}))});a.on("ended",function(){a.getVideoTitle().then(function(c){dataLayer.push({event:"gtmEvent",eventCategory:"video",eventAction:"video complete",eventLabel:c})})["catch"](function(c){})})},500)})}var vids=document.querySelectorAll(".video-wrapper");
+if(0<vids.length)for(i=0;i<vids.length;i++)if(players=vids[i].getElementsByTagName("video"),0<players.length)for(var j=0;j<players.length;j++){var p=players[j];p.addEventListener("play",function(b){0==Math.floor(b.target.currentTime)&&dataLayer.push({event:"gtmEvent",eventCategory:"video",eventAction:"video start",eventLabel:b.target.currentSrc})});p.addEventListener("ended",function(b){dataLayer.push({event:"gtmEvent",eventCategory:"video",eventAction:"video complete",eventLabel:b.target.currentSrc})})};</script><img id="kewVF8nz8F8iowQTomHn" style="display: none !important;display:none" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/generic" stndz-blocked=""><img id="RRbUJ62CVxF2mfvjKRcV" style="display:none" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/t.gif"><script type="text/javascript" id="term-e7e5d07437489" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/t.js.download"></script><script type="text/javascript" id="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/pa-5cc1d870e98940001600009c.js.download"></script><script type="text/javascript" id="">(function(){function b(){!1===c&&(c=!0,Munchkin.init("294-TKB-300",{asyncOnly:!0}))}var c=!1,a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src="//munchkin.marketo.net/munchkin.js";a.onreadystatechange=function(){"complete"!=this.readyState&&"loaded"!=this.readyState||b()};a.onload=b;document.getElementsByTagName("head")[0].appendChild(a)})();</script><script type="text/javascript" id="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/up_loader.1.1.0.js.download"></script><script type="text/javascript" id="">!function(b){var a=b.clearbit=b.clearbit||[];if(!a.initialize)if(a.invoked)b.console&&console.error&&console.error("Clearbit snippet included twice.");else{a.invoked=!0;a.methods="trackSubmit trackClick trackLink trackForm pageview identify reset group track ready alias page once off on".split(" ");a.factory=function(c){return function(){var d=Array.prototype.slice.call(arguments);d.unshift(c);a.push(d);return a}};for(b=0;b<a.methods.length;b++){var e=a.methods[b];a[e]=a.factory(e)}a.load=function(c){var d=
+document.createElement("script");d.async=!0;d.src=("https:"===document.location.protocol?"https://":"http://")+"x.clearbitjs.com/v1/"+c+"/clearbit.min.js";c=document.getElementsByTagName("script")[0];c.parentNode.insertBefore(d,c)};a.SNIPPET_VERSION="3.1.0";a.load("pk_0805aa32b9848e8e93733f7054c45487");a.page()}}(window);</script><script type="text/javascript" id="">function pushToDataLayer(a){a={reveal:a};dataLayer.push(a);dataLayer.push({event:"Clearbit Loaded"});return!0};</script>
+<script type="text/javascript" id="" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/reveal"></script>
+
+<script type="text/javascript" id="">!function(b,c,d,a){b.twq||(a=b.twq=function(){a.exe?a.exe.apply(a,arguments):a.queue.push(arguments)},a.version="1",a.queue=[],t=c.createElement(d),t.async=!0,t.src="//static.ads-twitter.com/uwt.js",s=c.getElementsByTagName(d)[0],s.parentNode.insertBefore(t,s))}(window,document,"script");twq("init","o4b28");twq("track","PageView");</script>
+
+<script src="./Understanding Functional Components vs. Class Components in React - Twilio_files/notice(1)" async="async" crossorigin=""></script>
+
+<script type="text/javascript" id="">ttd_dom_ready(function(){if("function"===typeof TTDUniversalPixelApi){var a=new TTDUniversalPixelApi;a.init("x6sfa3v",["hmljsvr"],"https://insight.adsrvr.org/track/up")}});</script><iframe name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/box-469cf41adb11dc78be68c1ae7f9457a4.html" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe><iframe id="qualaroo_dnt_frame" src="./Understanding Functional Components vs. Class Components in React - Twilio_files/frame.html" style="width: 1px; height: 1px; display: none; opacity: 0;"></iframe><script type="text/javascript" id="">window.dataLayer=window.dataLayer||[];window.dataLayer.push({registrationSource:google_tag_manager["GTM-MWRD6S"].macro(15),marketo_cookie:google_tag_manager["GTM-MWRD6S"].macro(16),userSID:google_tag_manager["GTM-MWRD6S"].macro(17),visitorSID:google_tag_manager["GTM-MWRD6S"].macro(18)});</script></body></html>
